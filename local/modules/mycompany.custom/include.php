@@ -23,4 +23,9 @@ $eventManager->addEventHandler('main', 'OnProlog', [
 	'setIsDevServerConstant'
 ]);
 
+$eventManager->addEventHandler('main', 'OnAdminContextMenuShow', [
+	'MyCompany\Custom\EventHandlers\Main',
+	'showDetailButton'
+]);
+
 
