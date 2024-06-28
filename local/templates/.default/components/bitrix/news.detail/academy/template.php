@@ -33,9 +33,20 @@ $this->setFrameMode(true);
 					<div class="card-news__body">
 						<h1 class="card-news__name mt-0 mb-4 fw-normal"><?=$arResult["FIELDS"]["NAME"]?></h1>
 					</div>
-				<? endif ?>
+				<? endif; ?>
 			</div>
 		</div>
 	</div>
 	<?=$arResult["FIELDS"]["DETAIL_TEXT"]?>
+
+	<?php if ($arResult['PREVIOUS']): ?>
+	<div class="card-news-links">
+		<a class="news-previous btn btn-outline-primary rounded-pill btn-sm" href="<?=$arResult['PREVIOUS']['DETAIL_PAGE_URL']?>"><?=$arResult['PREVIOUS']['SHORT_NAME']?></a>
+	</div>
+	<?php endif;?>
+		<?php if ($arResult['NEXT']): ?>
+			<div class="card-news-links">
+				<a class="news-next btn btn-outline-primary rounded-pill btn-sm" href="<?=$arResult['NEXT']['DETAIL_PAGE_URL']?>"><?=$arResult['NEXT']['SHORT_NAME']?></a>
+			</div>
+	<?php endif;?>
 <?php endif; ?>
