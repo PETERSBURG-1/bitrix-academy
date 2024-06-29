@@ -28,4 +28,9 @@ $eventManager->addEventHandler('main', 'OnAdminContextMenuShow', [
 	'showDetailButton'
 ]);
 
+$eventManager->addEventHandler('iblock', 'OnBeforeIblockElementUpdate', [
+	'MyCompany\Custom\EventHandlers\Iblock',
+	'stopDeactivateNews'
+]);
+
 
