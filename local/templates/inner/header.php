@@ -40,5 +40,6 @@ $request = \Bitrix\Main\Application::getInstance()->getContext()->getRequest();
 				<div class="alert alert-info mt-3">
 					<?php $APPLICATION->ShowProperty('left_block_content');?>
 				</div>
+				<?$APPLICATION->ShowViewContent('news_related_product') ?>
 			</div>
 			<div class="col-12 col-lg-8">

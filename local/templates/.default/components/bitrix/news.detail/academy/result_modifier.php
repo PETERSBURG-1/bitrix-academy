@@ -65,3 +65,24 @@ if ($arResult["ID"]) {
 }
 
 $this->__component->SetResultCacheKeys(['DISPLAY_DATE']);
+
+$relatedProductId = $arResult['DISPLAY_PROPERTIES']['RELATED_PRODUCT']['VALUE'];
+if ($relatedProductId) {
+	$relatedProductFields = $arResult['DISPLAY_PROPERTIES']['RELATED_PRODUCT']['LINK_ELEMENT_VALUE'][$relatedProductId];
+
+	$img = CFile::ResizeImageGet(
+		$relatedProductFields['DETAIL_PICTURE'],
+		[
+			'width' => 100,
+			'height' => 100,
+		],
+		BX_RESIZE_IMAGE_PROPORTIONAL,
+		true
+	);
+
+	$arResult['RELATED_PRODUCT'] = [
+		'NAME' => $relatedProductFields['NAME'],
+		'DETAIL_PAGE_URL' => $relatedProductFields['DETAIL_PAGE_URL'],
+		'IMG' => $img,
+	];
+}

@@ -49,4 +49,18 @@ $this->setFrameMode(true);
 				<a class="news-next btn btn-outline-primary rounded-pill btn-sm" href="<?=$arResult['NEXT']['DETAIL_PAGE_URL']?>"><?=$arResult['NEXT']['SHORT_NAME']?></a>
 			</div>
 	<?php endif;?>
+
+	<?php if ($arResult['RELATED_PRODUCT']): ?>
+	<?php $this->SetViewTarget('news_related_product') ?>
+		<a class="news-related-product-block" href="<?=$arResult['RELATED_PRODUCT']['DETAIL_PAGE_URL']?>">
+			<img class="img img_lazy lazyload object-fit-cover"
+					src="<?=$arResult['RELATED_PRODUCT']['IMG']['src']?>"
+					alt="<?=$arResult['RELATED_PRODUCT']['NAME']?>"
+					title="<?=$arResult['RELATED_PRODUCT']['NAME']?>"
+					width="<?=$arResult['RELATED_PRODUCT']['IMG']['width']?>"
+					height="<?=$arResult['RELATED_PRODUCT']['IMG']['height']?>">
+			<div><?=$arResult['RELATED_PRODUCT']['NAME']?></div>
+		</a>
+		<?php $this->EndViewTarget() ?>
+	<?php endif; ?>
 <?php endif; ?>
