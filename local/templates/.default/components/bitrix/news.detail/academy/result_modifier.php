@@ -63,3 +63,5 @@ if ($arResult["ID"]) {
 		}
 	}
 }
+
+$this->__component->SetResultCacheKeys(['DISPLAY_DATE']);
