@@ -53,3 +53,8 @@ $eventManager->addEventHandler('iblock', 'OnIBlockPropertyBuildList', [
 	'getUserTypeDescription'
 ]);
 
+$eventManager->addEventHandler('main', 'OnEndBufferContent', [
+	'MyCompany\Custom\EventHandlers\Main',
+	'clearDebugForNonAdmins'
+]);
+

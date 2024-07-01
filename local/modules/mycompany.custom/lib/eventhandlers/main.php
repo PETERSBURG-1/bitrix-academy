@@ -113,4 +113,13 @@ class Main
 		}
 	}
 
+	static function clearDebugForNonAdmins(&$content)
+	{
+		global $USER;
+		if (!$USER->IsAdmin())
+		{
+			$content = preg_replace('/console\.log\(.*\)/U', '', $content);
+		}
+	}
+
 }
