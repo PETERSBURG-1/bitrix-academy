@@ -33,4 +33,14 @@ $eventManager->addEventHandler('iblock', 'OnBeforeIblockElementUpdate', [
 	'stopDeactivateNews'
 ]);
 
+$eventManager->addEventHandler('main', 'OnBeforeUserUpdate', [
+	'MyCompany\Custom\EventHandlers\Main',
+	'fillOldGroups'
+]);
+
+$eventManager->addEventHandler('main', 'OnAfterUserUpdate', [
+	'MyCompany\Custom\EventHandlers\Main',
+	'notifyAdmins'
+]);
+
 
