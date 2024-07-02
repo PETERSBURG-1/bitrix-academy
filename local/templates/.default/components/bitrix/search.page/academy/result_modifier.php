@@ -2,6 +2,7 @@
 
 use Bitrix\Main\Loader;
 use Bitrix\Catalog\PriceTable;
+use Bitrix\HighloadBlock\HighloadBlockTable;
 
 /**
  * @var array $arResult
@@ -10,6 +11,20 @@ use Bitrix\Catalog\PriceTable;
 $iblockItems = [];
 $iblockSections = [];
 $products = [];
+
+$navResult = $arResult['NAV_RESULT'];
+if (Loader::includeModule('highloadblock') && $navResult && $arResult['NAV_RESULT']->PAGEN == 1)
+{
+	$fields = [
+		'UF_QUERY' => $arResult['REQUEST']['QUERY'],
+		'UF_QUERY_RESPONSE_CNT' => $navResult->SelectedRowsCount()
+	];
+
+	$hlBlockEntity = HighloadBlockTable::compileEntity('SearchHistory');
+	$hlBlockClass = $hlBlockEntity->getDataClass();
+
+	$hlBlockClass::add($fields);
+}
 
 foreach($arResult["SEARCH"] as $i => $arItem)
 {

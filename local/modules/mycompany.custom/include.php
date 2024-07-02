@@ -58,3 +58,8 @@ $eventManager->addEventHandler('main', 'OnEndBufferContent', [
 	'clearDebugForNonAdmins'
 ]);
 
+$eventManager->addEventHandler('', 'SearchHistoryOnBeforeAdd', [
+	'MyCompany\Custom\EventHandlers\SearchHistory',
+	'saveQuerySearchInfo'
+]);
+
